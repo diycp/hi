@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>茂名职业技术学院</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+<bod>
+
+<div class="container mt-3">
+    <div class="card bg-info text-white">
+        <div class="card-body"><img class="img-fluid" src="/image/logo.png"> <h2 style="float: right">新生报到注册<span class="badge badge-secondary">New</span></h2></div>
+      </div>
+
+      <h3><span class="badge badge-danger">注意! 请学生认真填写以下资料：</span></h3>
+
+  <form action="{:url('index/index/index')}" enctype="multipart/form-data" method="POST">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">身份证号</span>
+        </div>
+        <input type="text" class="form-control" name="sid" id="sid" placeholder="请输入文本内容" maxlength="18" >
+      </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">姓名</span>
+        </div>
+        <input type="text" class="form-control" name="sname" id="sname" value="" placeholder="系统自动显示无需输入" readonly>
+      </div>   
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">性别</span>
+        </div>
+        <input type="text" class="form-control" name="ssex" value="" placeholder="系统自动显示无需输入" readonly>
+      </div>   
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">录取专业</span>
+        </div>
+        <input type="text" class="form-control" name="spename" value="" placeholder="系统自动显示无需输入" readonly>
+      </div> 
+      <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">所在班级</span>
+            </div>
+            <input type="text" class="form-control" name="classname" value="" placeholder="系统自动显示无需输入" readonly>
+          </div>   
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">银行扣费情况</span>
+        </div>
+        <input type="text" class="form-control" name="demoney" value="" placeholder="系统自动显示无需输入" readonly>
+      </div>   
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">联系电话1</span>
+        </div>
+        <input type="text" class="form-control" name="phone1"  maxlength="11">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">联系电话2</span>
+        </div>
+        <input type="text" class="form-control" name="phone2"  maxlength="11">
+      </div>   
+      <!-- 家庭成员 -->
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="card-link" data-toggle="collapse" href="#collapseOne">
+              家庭成员
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-parent="#accordion">
+            <div class="card-body">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">姓名</span>
+                            </div>
+                            <input type="text" class="form-control" name="parentname" placeholder="成员一" >
+                          </div>   
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">关系</span>
+                    </div>
+                    <input type="text" class="form-control" name="relation" >
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">联系电话</span>
+                    </div>
+                    <input type="text" class="form-control" name="parentwork">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">工作单位</span>
+                    </div>
+                    <input type="text" class="form-control" name="parentphone">
+                  </div>
+            </div>
+            <div class="card-body">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">姓名</span>
+                            </div>
+                            <input type="text" class="form-control" >
+                          </div>   
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">关系</span>
+                    </div>
+                    <input type="text" class="form-control"  placeholder="成员二" >
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">联系电话</span>
+                    </div>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">工作单位</span>
+                    </div>
+                    <input type="text" class="form-control">
+                  </div>
+            </div>
+            <div class="card-body">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">姓名</span>
+                            </div>
+                            <input type="text" class="form-control"  placeholder="成员三" >
+                          </div>   
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">关系</span>
+                    </div>
+                    <input type="text" class="form-control" >
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">联系电话</span>
+                    </div>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">工作单位</span>
+                    </div>
+                    <input type="text" class="form-control">
+                  </div>
+            </div>
+          </div>
+        </div><br/>
+      <!-- 家庭成员 -->
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">家庭住址</span>
+        </div>
+        <input type="text" class="form-control" name="address" placeholder="尽可能写详细一点">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">是否有贫困证明材料</span>
+        </div>
+        <select class="form-control" name="prove">
+            <option value="无">无</option>
+			<option value="低保证">低保证</option>
+			<option value="居委会/村/街道办贫困证明">居委会/村/街道办贫困证明</option>
+		     <option value="残疾证">残疾证</option>
+		</select>
+      </div>
+      <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">是否购买校园保险</span>
+            </div>
+            <div class="form-control">
+            <label class="radio-inline"><input type="radio" name="optradio"  value="1">&nbsp;-购买</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="radio-inline"><input type="radio" name="optradio" value="0">&nbsp;-不购买</label>
+          </div>
+    </div>
+    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">住宿意向</span>
+        </div>
+        <div class="form-control">
+        <label class="radio-inline"><input type="radio" name="Expense"  value="1">&nbsp;一级宿舍(6人/间)</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <label class="radio-inline"><input type="radio" name="Expense" value="0">&nbsp;二级宿舍(8人/间)</label>
+     </div>
+      </div>  
+      <div class="panel panel-danger">
+            <div class="panel-heading">
+                有无过往病史：<span style="color: red">需要在军训期间请假，或者申请军训面修同学。请务必认真填写。此项不填及病史不全者，及那个不予受理请假或免修</span>
+           </div>
+            <div class="form-control">
+                <label class="radio-inline"><input type="radio" name="optradio"  value="1">&nbsp;-有</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="radio-inline"><input type="radio" name="optradio" value="0">&nbsp;-无</label>
+            </div>
+        </div>
+       
+    <div class="form-group">
+            <label for="name">需要特殊说明的情况：</label>
+            <textarea class="form-control" name="sepcial" rows="3" placeholder="1.身份证遗失  2.录取通知书遗失   3.档案开封 4.病史说明****"></textarea>
+        </div>
+        <input type="submit" class="btn btn-outline-success" value="确认并提交"/>
+  </form>
+  
+ 
+</div>
+
+</body>
+</html>

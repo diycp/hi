@@ -1,0 +1,6 @@
+按住windows键（就是小旗子小窗口键）+R，打开运行；
+在输入框中输入 cmd并回车；
+紧接着在dos窗口中输入“CD \WINDOWS\SYSTEM32\DRIVERS\ETC”（不含引号），回车；
+再次输入“ATTRIB -S -H -R HOSTS”（不含引号），回车。
+hosts文件加入
+127.0.0.1 hi.mmvtc.cn

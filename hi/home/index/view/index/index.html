@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap 实例</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/jquery/jquery-3.3.1.js"></script>
+<script src="/js/index.js"></script>
+<style type="text/css">
+  body {
+	background-color: lightgrey;
+}
+  </style>
+  <script >
+    $(document).ready(function(){
+    $("#sid").blur(function(){  // 失去焦点 
+      var sid=$("#sid").val();//获取身份证号
+      if(sid.length<18){
+        alert('请输入18位身份证号')
+      }else{
+      $.ajax(
+          {
+              url: "{:url('index/index/test')}",
+              type: "POST",
+              dataType:"json",
+              data:{id:sid},
+              success: function(data){
+                console.log(data);
+               if(data){
+                  $('#sid').val(data.data.sid);//赋值
+                  $('#sname').val(data.data.sname);
+                  $('#ssex').val(data.data.ssex);
+                  $('#spename').val(data.data.spename);
+                  $('#classname').val(data.data.classname);
+                }else{
+                  alert("没有该身份证号信息");
+                }
+              }
+          });
+      }
+         }); 
+        });
+  </script>
+</head>
+<body>
+
+<div class="container">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <!-- Brand -->
+                <img src="/image/logo.png" />
+                <!-- Links -->
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://www.mmvtc.cn/templet/default/index.jsp">学院首页</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">教务管理系统</a>
+                  </li>
+                  <!-- Dropdown -->
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                      教学单位
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="http://www.mmvtc.cn/templet/jsjgcx/indexCope.jsp">计算机工程系</a>
+                      <a class="dropdown-item" href="http://www.mmvtc.cn/templet/hxgcx">化x学工程系</a>
+                      <a class="dropdown-item" href="http://www.mmvtc.cn/templet/jjglx">经济管理系</a>
+                      <a class="dropdown-item" href="http://www.mmvtc.cn/templet/jdxxx/">机电信息系</a>
+                      <a class="dropdown-item" href="http://www.mmvtc.cn/templet/tmgcx/">土木工程系</a>
+                    </div>
+                  </li>
+                </ul>
+                <h2 style="float: right;color: oldlace;">新生报到注册</h2>
+              </nav>
+          <h3><span class="badge badge-danger">注意! 请学生认真填写以下资料：</span></h3>
+    
+  
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#home">基本信息</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#menu1">家庭成员</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#menu2">住校情况</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+   <form action="{:url('index/index/index')}" enctype="multipart/form-data" method="POST">
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">身份证号</span>
+            </div>
+            <input type="text" class="form-control" name="sid" id="sid" value="" placeholder="请输入文本内容" maxlength="18" >
+          </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">姓名</span>
+            </div>
+            <input type="text" class="form-control" name="sname" id="sname" value="" placeholder="系统自动显示无需输入" readonly>
+          </div>   
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">性别</span>
+            </div>
+            <input type="text" class="form-control" name="ssex" id="ssex" value="" placeholder="系统自动显示无需输入" readonly>
+          </div>   
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">录取专业</span>
+            </div>
+            <input type="text" class="form-control" name="spename" id="spename" value="" placeholder="系统自动显示无需输入" readonly>
+          </div> 
+          <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">所在班级</span>
+                </div>
+                <input type="text" class="form-control" name="classname" id="classname" value="" placeholder="系统自动显示无需输入" readonly>
+              </div>   
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">银行扣费情况</span>
+            </div>
+            <input type="text" class="form-control" name="demoney" value="" placeholder="系统自动显示无需输入" readonly>
+          </div>   
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">联系电话1</span>
+            </div>
+            <input type="text" class="form-control" name="phone1" id="phone"maxlength="11">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">联系电话2</span>
+            </div>
+            <input type="text" class="form-control" name="phone2" id="phone" maxlength="11">
+          </div> 
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">家庭住址</span>
+            </div>
+            <input type="text" class="form-control" name="address" placeholder="尽可能写详细一点" maxlength="100">
+          </div>
+   </div>
+    <div id="menu1" class="container tab-pane fade"><br>
+        <div id="accordion">
+            <div class="card">
+              <div class="card-header" >
+                <a class="card-link" data-toggle="collapse" href="#collapseOne" >家庭成员 </a>
+                <img id="add" style="width: 35px;height: 35px;" src="/image/a_03.gif"/>
+                <img id="del" style="width: 35px;height: 35px;" src="/image/a_04.gif"/>
+              </div>
+              <div id="collapseOne" class="collapse show" data-parent="#accordion">
+               <div class="card-body" id="family">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">姓名</span>
+                    </div>
+                    <input type="text" class="form-control" name="parentname[]" placeholder="成员一" maxlength="15">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">关系</span>
+                    </div>
+                    <input type="text" class="form-control" name="relation[]" maxlength="10">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">联系电话</span>
+                    </div>
+                    <input type="text" class="form-control" name="parentwork[]" id="phone" maxlength="11">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">工作单位</span>
+                    </div>
+                    <input type="text" class="form-control" name="parentphone[]" maxlength="100">
+                  </div>
+                </div>
+              <p>
+              </div>
+            </div><br/>
+            </div>
+      </div>
+
+    <div id="menu2" class="container tab-pane fade"><br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">是否有贫困证明材料</span>
+            </div>
+            <select class="form-control" name="prove">
+              <option value="无" selected="selected">无</option>
+              <option value="低保证">低保证</option>
+              <option value="居委会/村/街道办贫困证明">居委会/村/街道办贫困证明</option>
+              <option value="残疾证">残疾证</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">是否购买校园保险</span>
+            </div>
+            <div class="form-control">
+              <label class="radio-inline">
+                <input type="radio" name="insurance" value="1">&nbsp;-购买</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <label class="radio-inline">
+                <input type="radio" name="insurance" value="0" checked>&nbsp;-不购买</label>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">住宿意向</span>
+            </div>
+            <div class="form-control">
+              <label class="radio-inline">
+                <input type="radio" name="Expense" value="1">&nbsp;一级宿舍(6人/间)</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <label class="radio-inline">
+                <input type="radio" name="Expense" value="0" checked>&nbsp;二级宿舍(8人/间)</label>
+            </div>
+          </div>
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              有无过往病史：
+              <span style="color: red">需要在军训期间请假，或者申请军训面修同学。请务必认真填写。此项不填及病史不全者，及那个不予受理请假或免修</span>
+            </div>
+            <div class="form-control">
+              <label class="radio-inline">
+                <input type="radio"  name="sick" value="1">&nbsp;-有</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <label class="radio-inline">
+                <input type="radio" name="sick" value="0" checked>&nbsp;-无</label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="name">需要特殊说明的情况：</label>
+            <textarea class="form-control" name="special" rows="3" maxlength="100" placeholder="1.身份证遗失  2.录取通知书遗失   3.档案开封 4.病史说明****"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-lg btn-block">确认并提交</button>
+        
+    </div>
+  </div>
+
+</div>
+</form>
+</body>
+</html>
